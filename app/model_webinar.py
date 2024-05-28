@@ -71,13 +71,13 @@ class Webinar():
     @staticmethod
     def data_webinar(w_id):
         
-        webinar = None
+        webinar_info = None
         try: 
             
-            webinar = list(mongo.db.webinar_data.find({"id":w_id}))
-            # webinar = webinar_data[0]
-            if webinar:    
-                webinar_data_dict ={
+            webinar_data = list(mongo.db.webinar_data.find({"id":w_id}))
+            webinar = webinar_data[0]
+               
+            webinar_data_dict ={
             
                     "id":webinar ["id"],
 
@@ -111,11 +111,11 @@ class Webinar():
                     "description":webinar ["description"],
 
                     }
-        
+            webinar_info = webinar_data_dict
         except Exception as e:
-            webinar = None
+            webinar_info = None
         
-        return webinar
+        return webinar_info
 
     @staticmethod
     def update_webinar(w_id, webinar_data):
