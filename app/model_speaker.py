@@ -39,7 +39,7 @@ class Speaker():
                 "status":speaker["status"],
                 "bio":speaker["bio"],
                 }
-            speaker_list.append(speaker_dict)
+                speaker_list.append(speaker_dict)
         
         except Exception as e:
             speaker_list = []
@@ -58,11 +58,12 @@ class Speaker():
         
     @staticmethod
     def data_speaker(s_id):
-        speaker_data = None
+        
+        speaker_info = None  
         try:
-            speaker = (mongo.db.speaker_data.find({"id":s_id}))
-            if speaker:
-                speaker_dict={
+            speaker_data = list(mongo.db.speaker_data.find({"id":s_id}))
+            speaker = speaker_data[0]
+            speaker_dict={
                 "id": speaker ["id"],
                 "name": speaker ["name"],
                 "email":speaker ["email"],
@@ -74,10 +75,12 @@ class Speaker():
                 "history": speaker["history"]
             }
             
+            speaker_info = speaker_dict
         except Exception as e:
-            speaker_data = None
+            speaker_info = None 
+            
         
-        return speaker_data
+        return speaker_info
     
 
     @staticmethod
@@ -120,4 +123,3 @@ class Speaker():
             return result.modified_count
         except Exception as e:
             return {"success":False, "message":str(e)}
-
