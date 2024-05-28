@@ -4,7 +4,8 @@ from flask_pymongo import PyMongo
 from flask_cors import CORS
 import boto3, s3fs
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv 
+# access your MongoDB Atlas cluster
 load_dotenv()
 
 connection_string: str = os.environ.get("CONNECTION_STRING")
