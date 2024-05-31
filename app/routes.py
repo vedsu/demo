@@ -308,7 +308,7 @@ def update_speaker_panel(s_id):
                                     string.digits, k=N))
         bucket_name = "vedsubrandwebsite"
         object_key = speaker_name+"_"+res
-        s3_url = f"https://{bucket_name}.s3.amazonaws.com/speaker/{object_key}.jpeg"
+        s3_url = f"https://{bucket_name}.s3.amazonaws.com/images/{object_key}.jpeg"
         s3_client.put_object(
         Body=image, 
         Bucket=bucket_name, 
