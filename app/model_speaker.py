@@ -107,7 +107,7 @@ class Speaker():
     def delete_speaker(s_id):
         
         try:
-            mongo.db.speaker_data.delete({"id":s_id})
+            mongo.db.speaker_data.delete_one({"id":s_id})
             return {"success": True, "message": "speaker deletion successful"}
         
         except Exception as e:
