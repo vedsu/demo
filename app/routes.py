@@ -244,8 +244,8 @@ def create_speaker():
                                     string.digits, k=N))
         
         bucket_name = "vedsubrandwebsite"
-        object_key = speaker_name+"_"+res
-        s3_url = f"https://{bucket_name}.s3.amazonaws.com/images/{object_key}.jpeg"
+        object_key = ''.join(speaker_name.split(" "))+"_"+res
+        s3_url = f"https://{bucket_name}.s3.amazonaws.com/speaker/{object_key}.jpeg"
         image = request.files.get("photo")
         s3_client.put_object(
         Body=image, 
@@ -307,8 +307,8 @@ def update_speaker_panel(s_id):
         res = ''.join(random.choices(string.ascii_uppercase +
                                     string.digits, k=N))
         bucket_name = "vedsubrandwebsite"
-        object_key = speaker_name+"_"+res
-        s3_url = f"https://{bucket_name}.s3.amazonaws.com/images/{object_key}.jpeg"
+        object_key = ''.join(speaker_name.split(" "))+"_"+res
+        s3_url = f"https://{bucket_name}.s3.amazonaws.com/speaker/{object_key}.jpeg"
         s3_client.put_object(
         Body=image, 
         Bucket=bucket_name, 
