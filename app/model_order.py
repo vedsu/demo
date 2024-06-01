@@ -32,7 +32,7 @@ class Order:
 
             }
 
-            order_list.append(order_dict)
+                order_list.append(order_dict)
             
         
         except Exception as e:
