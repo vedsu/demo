@@ -203,7 +203,7 @@ def update_webinar_panel(w_id):
         
         response = Webinar.update_webinar(w_id, webinar_data)
         if response.get("success") == True:
-            return response,201
+            return response,200
     
         else:
             return response,304
@@ -320,7 +320,7 @@ def update_speaker_panel(s_id):
             "email": request.form.get("email"),
             "contact" : request.form.get("contact"),
             "industry": request.form.get("industry"),
-            "status": request.form.get("status"),
+            "status": "Active",
             "bio": request.form.get("bio"),
             "photo": s3_url,
             
@@ -328,7 +328,7 @@ def update_speaker_panel(s_id):
         
         response= Speaker.update_speaker(s_id, speaker_dict)
         if response.get("success") == True:
-            return response,201
+            return response,200
     
         else:
             return response,304
